@@ -1,9 +1,11 @@
 import './App.css';
+import Calendar from './components/Calendar/Calendar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello React</h1>
+      <h1>NApp Tár</h1>
+      <Calendar />
     </div>
   );
 }

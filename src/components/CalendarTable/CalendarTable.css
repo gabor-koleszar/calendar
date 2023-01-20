@@ -1,0 +1,24 @@
+.calendar-table {
+    margin: 5rem auto 10rem auto;
+}
+
+.calendar-header, .calendar-body {
+    display: flex;
+    justify-content: center;
+}
+
+.header-cell {
+    font-weight: 700;
+    height: 5rem;
+    width: 10rem;
+    border: 1px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.calendar-body {
+    display: flex;
+    flex-direction: column;
+}
