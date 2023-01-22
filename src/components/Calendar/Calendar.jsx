@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import CalendarTable from "../CalendarTable/CalendarTable";
+import './Calendar.css';
+import NotePopup from "../NotePopup/NotePopup";
 
 export default function Calendar() {
 
@@ -73,6 +75,8 @@ export default function Calendar() {
     const [ yearList, setYearList ] = useState(generateYears());
     const [ selectedDate, setSelectedDate ] = useState(getSelectedDate());
     const [ notePopup, setNotePopup ] = useState("");
+    const [ cellNum, setCellNum ] = useState(null);
+    const [ isPopup, setIsPopup ] = useState(false);
 
     useEffect(() => {
         setSelectedDate(getSelectedDate());     
@@ -86,12 +90,14 @@ export default function Calendar() {
         setMonth(event.target.value);
     }
 
-    const showNote = (cellNum) => {
-        setNotePopup(
-            <div className="note-popup">
-                {cellNum}
-            </div>
-        );
+    const showNote = (cellData) => {
+        setIsPopup(true);
+        setCellNum(cellData);
+    }
+
+    const hideNote = () => {
+        setIsPopup(false);
+        setCellNum(null);
     }
 
     return (
@@ -117,7 +123,8 @@ export default function Calendar() {
                 <option key="11" value="11">december</option>
             </select>
             <CalendarTable selectedDate={selectedDate} showNote={showNote} />
-            {notePopup}
+            <NotePopup cellNum={cellNum} year={year} month={setMonthName(month)} togglePopup={isPopup} setTogglePopup={setIsPopup} />
+            {/* {notePopup} */}
         </div>
     );
 }
