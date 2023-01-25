@@ -2,7 +2,7 @@ import './CalendarTable.css';
 import React, { useEffect, useState } from "react";
 import CalendarRow from "../CalendarRow/CalendarRow";
 
-export default function CalendarTable({selectedDate, showNote}) {
+export default function CalendarTable({selectedDate, showNote, noted, y, m}) {
 
     const [ calendArr, setCalendArr ] = useState([]);
 
@@ -71,7 +71,7 @@ export default function CalendarTable({selectedDate, showNote}) {
                     <div className="header-cell sunday">Vasárnap</div>
                 </div>
                 <div className="calendar-body">
-                    {calendArr.map((row, index) => <CalendarRow key={'tr_'+index} rowArr={row} showNote={showNote} />)}
+                    {calendArr.map((row, index) => <CalendarRow key={'tr_'+index} rowArr={row} showNote={showNote} noted={noted} y={y} m={m} />)}
                 </div>
             </div>
         </>

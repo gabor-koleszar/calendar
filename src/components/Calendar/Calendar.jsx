@@ -74,12 +74,34 @@ export default function Calendar() {
     const [ month, setMonth ] = useState(date.getMonth());
     const [ yearList, setYearList ] = useState(generateYears());
     const [ selectedDate, setSelectedDate ] = useState(getSelectedDate());
-    const [ notePopup, setNotePopup ] = useState("");
     const [ cellNum, setCellNum ] = useState(null);
     const [ isPopup, setIsPopup ] = useState(false);
+    const [ notedDays, setNotedDays ] = useState([]);
+
+    const listNotedDays = () => {
+        const url = "http://localhost/api/calendar/noted_day_list.php";
+        const jsonData = {
+            year: year,
+            month: month
+        };
+        const config = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData)
+        }
+
+        fetch(url, config)
+        .then(response => response.json())
+        .then((data) => {
+            setNotedDays(data.result);
+        });
+    }
 
     useEffect(() => {
-        setSelectedDate(getSelectedDate());     
+        setSelectedDate(getSelectedDate());
+        listNotedDays();
     }, [year, month]);
 
     const changeYear = (event) => {
@@ -95,9 +117,22 @@ export default function Calendar() {
         setCellNum(cellData);
     }
 
-    const hideNote = () => {
-        setIsPopup(false);
-        setCellNum(null);
+    const monthPlus = () => {
+        if (month === 11) {
+            setMonth(0);
+            setYear(year + 1);
+        } else {
+            setMonth(month + 1);
+        }
+    }
+
+    const monthMinus = () => {
+        if (month === 0) {
+            setMonth(11);
+            setYear(year - 1);
+        } else {
+            setMonth(month - 1);
+        }
     }
 
     return (
@@ -122,9 +157,13 @@ export default function Calendar() {
                 <option key="10" value="10">november</option>
                 <option key="11" value="11">december</option>
             </select>
-            <CalendarTable selectedDate={selectedDate} showNote={showNote} />
-            <NotePopup cellNum={cellNum} year={year} month={setMonthName(month)} togglePopup={isPopup} setTogglePopup={setIsPopup} />
-            {/* {notePopup} */}
+            <div className="arrows-container">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" className="arrow backw-arrow" onClick={monthMinus}><path d="m32.75 44-20-20 20-20 2.8 2.85L18.4 24l17.15 17.15Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" className="arrow forw-arrow" onClick={monthPlus}><path d="m15.2 43.9-2.8-2.85L29.55 23.9 12.4 6.75l2.8-2.85 20 20Z"/></svg>
+            </div>
+            
+            <CalendarTable selectedDate={selectedDate} showNote={showNote} noted={notedDays} y={year} m={month} />
+            <NotePopup cellNum={cellNum} year={year} month={setMonthName(month)} togglePopup={isPopup} setTogglePopup={setIsPopup} listNotedDays={listNotedDays} />
         </div>
     );
 }

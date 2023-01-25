@@ -2,15 +2,21 @@
     width: 10rem;
     height: 10rem;
     border: 1px solid green;
+    color: green;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: relative;
 }
 
 .cell:hover {
     background-color: green;
     color: whitesmoke;
+}
+
+.cell:hover .note-icon {
+    fill: whitesmoke;
 }
 
 .cell-empty {
@@ -19,4 +25,15 @@
 
 .cell-empty:hover {
     background-color: rgb(131, 155, 131);
+}
+
+.note-icon-container {
+    width: 2rem;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+}
+
+.note-icon {
+    fill: green;
 }

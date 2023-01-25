@@ -1,5 +1,34 @@
 .calendar-select {
     padding: 1rem 2rem;
+    margin: 1rem;
+    background-color: green;
+    color: whitesmoke;
+}
+
+.calendar-select option:hover{
+    background-color: whitesmoke;
+    color: green;
+}
+
+.arrows-container {
+    margin: 2rem;
+}
+
+.arrow {
+    fill: green;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    fill: rgb(16, 163, 16);
+}
+
+.backw-arrow {
+    margin-right: 3rem;
+}
+
+.forw-arrow {
+    margin-left: 3rem;
 }
 
 .note-popup {
@@ -42,7 +71,7 @@
 
 .note-form {
     width: 100%;
-    height: 80%;
+    height: 70%;
 }
 
 .the-note {
@@ -52,7 +81,7 @@
     border: 0.3rem solid rgb(230, 229, 229);
 }
 
-.save-note-btn {
+.note-btn {
     width: 100%;
     margin-top: 1rem;
     padding: 1rem;
@@ -62,6 +91,18 @@
     cursor: pointer;
 }
 
+.save-note-btn {
+    background-color: green;
+}
+
+.delete-note-btn {
+    background-color: rgb(204, 0, 0);
+}
+
 .save-note-btn:hover {
     background-color: rgb(16, 163, 16);
+}
+
+.delete-note-btn:hover {
+    background-color: rgb(233, 2, 2);
 }
