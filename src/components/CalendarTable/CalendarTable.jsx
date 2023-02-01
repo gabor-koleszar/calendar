@@ -2,9 +2,9 @@ import './CalendarTable.css';
 import React, { useEffect, useState } from "react";
 import CalendarRow from "../CalendarRow/CalendarRow";
 
-export default function CalendarTable({selectedDate, showNote, noted, y, m}) {
+export default function CalendarTable({selectedDate, showNote, noted, y, m}) { // use setSelectedDay showNote instead
 
-    const [ calendArr, setCalendArr ] = useState([]);
+    const [ calendArr, setCalendArr ] = useState([]); // change to daysArr
 
     const lastDayOfMonth = (year, month) => {
         const lastDay = new Date(year, month + 1, 0);

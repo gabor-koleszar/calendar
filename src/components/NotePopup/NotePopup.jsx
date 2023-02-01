@@ -12,50 +12,50 @@ export default function NotePopup({cellNum, year, month, togglePopup, setToggleP
 
     const setMonthNum = (theMonth) => {
         
-        let monthName = "";
+        let monthNum = "";
         switch (theMonth) {
             case "január":
-                monthName = 0;
+                monthNum = 0;
                 break;
             case "február":
-                monthName = 1;
+                monthNum = 1;
                 break;
             case "március":
-                monthName = 2;
+                monthNum = 2;
                 break;
             case "április":
-                monthName = 3;
+                monthNum = 3;
                 break;
             case "május":
-                monthName = 4;
+                monthNum = 4;
                 break;
             case "június":
-                monthName = 5;
+                monthNum = 5;
                 break;
             case "július":
-                monthName = 6;
+                monthNum = 6;
                 break;
             case "augusztus":
-                monthName = 7;
+                monthNum = 7;
                 break;
             case "szeptember":
-                monthName = 8;
+                monthNum = 8;
                 break;
             case "október":
-                monthName = 9;
+                monthNum = 9;
                 break;
             case "november":
-                monthName = 10;
+                monthNum = 10;
                 break;
             case "december":
-                monthName = 11;
+                monthNum = 11;
                 break;
             default:
-                monthName = "Empty"
+                monthNum = "Empty"
 
         }
         
-        return monthName;
+        return monthNum;
     }
 
     const saveNote = () => {

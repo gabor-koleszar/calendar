@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CalendarTable from "../CalendarTable/CalendarTable";
 import './Calendar.css';
 import NotePopup from "../NotePopup/NotePopup";
@@ -72,9 +72,9 @@ export default function Calendar() {
 
     const [ year, setYear ] = useState(date.getFullYear());
     const [ month, setMonth ] = useState(date.getMonth());
-    const [ yearList, setYearList ] = useState(generateYears());
+    const [ yearList, setYearList ] = useState(generateYears()); // move to SelectCalendar
     const [ selectedDate, setSelectedDate ] = useState(getSelectedDate());
-    const [ cellNum, setCellNum ] = useState(null);
+    const [ cellNum, setCellNum ] = useState(null); // change to selectedDay
     const [ isPopup, setIsPopup ] = useState(false);
     const [ notedDays, setNotedDays ] = useState([]);
 
@@ -112,7 +112,7 @@ export default function Calendar() {
         setMonth(event.target.value);
     }
 
-    const showNote = (cellData) => {
+    const showNote = (cellData) => { // move to useEffect affect to cellNum (later selectedDay)
         setIsPopup(true);
         setCellNum(cellData);
     }
