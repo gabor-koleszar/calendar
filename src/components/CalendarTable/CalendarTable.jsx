@@ -62,13 +62,13 @@ export default function CalendarTable({selectedDate, showNote, noted, y, m}) { /
         <>
             <div className="calendar-table">
                 <div className="calendar-header">
-                    <div className="header-cell">Hétfő</div>
-                    <div className="header-cell">Kedd</div>
-                    <div className="header-cell">Szerda</div>
-                    <div className="header-cell">Csütörtök</div>
-                    <div className="header-cell">Péntek</div>
-                    <div className="header-cell">Szombat</div>
-                    <div className="header-cell sunday">Vasárnap</div>
+                    <div className="header-cell">H</div>
+                    <div className="header-cell">K</div>
+                    <div className="header-cell">Sze</div>
+                    <div className="header-cell">Cs</div>
+                    <div className="header-cell">P</div>
+                    <div className="header-cell">Szo</div>
+                    <div className="header-cell sunday">V</div>
                 </div>
                 <div className="calendar-body">
                     {calendArr.map((row, index) => <CalendarRow key={'tr_'+index} rowArr={row} showNote={showNote} noted={noted} y={y} m={m} />)}

@@ -79,7 +79,8 @@ export default function Calendar() {
     const [ notedDays, setNotedDays ] = useState([]);
 
     const listNotedDays = () => {
-        const url = "http://localhost/api/calendar/noted_day_list.php";
+        const url = "http://46.101.153.235/api/calendar/noted_day_list.php";
+        // const url = "http://localhost/api/calendar/noted_day_list.php";
         const jsonData = {
             year: year,
             month: month

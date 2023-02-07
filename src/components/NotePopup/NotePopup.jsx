@@ -60,7 +60,8 @@ export default function NotePopup({cellNum, year, month, togglePopup, setToggleP
 
     const saveNote = () => {
 
-        const url = "http://localhost/api/calendar/save_note.php";
+        const url = "http://46.101.153.235/api/calendar/save_note.php";
+        // const url = "http://localhost/api/calendar/save_note.php";
         const data = {
             year: year,
             month: setMonthNum(month) + 1,
@@ -86,7 +87,8 @@ export default function NotePopup({cellNum, year, month, togglePopup, setToggleP
     }
 
     const deleteNote = () => {
-        const url = "http://localhost/api/calendar/delete_note.php";
+        const url = "http://46.101.153.235/api/calendar/delete_note.php";
+        // const url = "http://localhost/api/calendar/delete_note.php";
         const data = {
             year: year,
             month: setMonthNum(month) + 1,
@@ -111,7 +113,8 @@ export default function NotePopup({cellNum, year, month, togglePopup, setToggleP
     }
 
     const getNote = () => {
-        const url = "http://localhost/api/calendar/select_note.php";
+        const url = "http://46.101.153.235/api/calendar/select_note.php";
+        // const url = "http://localhost/api/calendar/select_note.php";
         const data = {
             year: year,
             month: setMonthNum(month) + 1,
@@ -158,8 +161,10 @@ export default function NotePopup({cellNum, year, month, togglePopup, setToggleP
                     </h2>
                     <form className="note-form">
                         <textarea name="the-note" className="the-note" value={note} onChange={changeNote} ></textarea>
-                        <button type="button" className="note-btn save-note-btn" onClick={saveNote} >Mentés</button>
-                        <button type="button" className="note-btn delete-note-btn" onClick={deleteNote} >Törlés</button>
+                        <div className="np-btn-group">
+                            <button type="button" className="note-btn save-note-btn" onClick={saveNote} >Mentés</button>
+                            <button type="button" className="note-btn delete-note-btn" onClick={deleteNote} >Törlés</button>
+                        </div>
                     </form>
                 </div>
             </div>
